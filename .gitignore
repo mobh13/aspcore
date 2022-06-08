@@ -5,9 +5,9 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
-.bin/*
-.obj/*
-.public/*
+bin
+obj
+public
 # Local History for Visual Studio Code
 .history/
 
