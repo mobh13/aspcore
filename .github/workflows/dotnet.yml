@@ -41,14 +41,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
          name: app2  
-      - run: pwd
-      - run: ${{env.DOTNET_ROOT}}/myapp
+
       - name: Stop Application Pool
         shell: cmd
         run: C:\Windows\System32\inetsrv\appcmd stop apppool /apppool.name:"DefaultAppPool"
       - name: Deploy Application
         shell: cmd
-        run: Copy-Item -Path "C:\Logfiles\*" -Destination "C:\inetpub\wwwroot" -Recurse
+        run: Copy-Item -Path . -Destination "C:\inetpub\wwwroot" -Recurse
       - name: Start Application Pool
         shell: cmd
         run: C:\Windows\System32\inetsrv\appcmd start apppool /apppool.name:"DefaultAppPool"
