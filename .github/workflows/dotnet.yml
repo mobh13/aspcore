@@ -32,7 +32,6 @@ jobs:
           name: app2
           path: ${{env.DOTNET_ROOT}}/myapp
   deploy:
-
     runs-on: self-hosted
     needs: build
 
@@ -41,15 +40,15 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: app2  
-    - uses: echo pwd
-    - uses: ${{env.DOTNET_ROOT}}/myapp
-    - name: Stop Application Pool
-      shell: cmd
-      run: C:\Windows\System32\inetsrv\appcmd stop apppool /apppool.name:"DefaultAppPool"
-    - name: Deploy Application
-      shell: cmd
-      run: Copy-Item -Path "C:\Logfiles\*" -Destination "C:\inetpub\wwwroot" -Recurse
-    - name: Start Application Pool
-      shell: cmd
-      run: C:\Windows\System32\inetsrv\appcmd start apppool /apppool.name:"DefaultAppPool"
+         name: app2  
+      - run: pwd
+      - run: ${{env.DOTNET_ROOT}}/myapp
+      - name: Stop Application Pool
+        shell: cmd
+        run: C:\Windows\System32\inetsrv\appcmd stop apppool /apppool.name:"DefaultAppPool"
+      - name: Deploy Application
+        shell: cmd
+        run: Copy-Item -Path "C:\Logfiles\*" -Destination "C:\inetpub\wwwroot" -Recurse
+      - name: Start Application Pool
+        shell: cmd
+        run: C:\Windows\System32\inetsrv\appcmd start apppool /apppool.name:"DefaultAppPool"
