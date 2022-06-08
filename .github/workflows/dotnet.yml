@@ -1,4 +1,6 @@
 name: Dotnet Build-Test-MSDeploy your project
+env:
+  DOTNET_V: '6.0'                 # set this to the .NET Core version to use
 
 on:
  # push:
