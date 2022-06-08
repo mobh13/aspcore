@@ -1,8 +1,8 @@
 name: Dotnet Build-Test-MSDeploy your project
 
 on:
-  push:
-    branches: [ master ]
+ # push:
+  #  branches: [ master ]
 
 jobs:
 
