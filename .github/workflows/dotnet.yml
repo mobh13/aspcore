@@ -40,8 +40,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app2  
-    uses: echo pwd
-    uses: ${{env.DOTNET_ROOT}}/myapp
+    - uses: echo pwd
+    - uses: ${{env.DOTNET_ROOT}}/myapp
     - name: Stop Application Pool
       shell: cmd
       run: C:\Windows\System32\inetsrv\appcmd stop apppool /apppool.name:"DefaultAppPool"
