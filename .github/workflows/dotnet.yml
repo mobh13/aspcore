@@ -46,8 +46,9 @@ jobs:
         shell: cmd
         run: C:\Windows\System32\inetsrv\appcmd stop apppool /apppool.name:"DefaultAppPool"
       - name: Deploy Application
-        shell: pwsh
-        run: Copy-Item -Path . -Destination "C:\inetpub\wwwroot" -Recurse
+        shell: cmd
+        run: xcopy . "C:\inetpub\wwwroot" /h /i /c /k /e /r /y
+        
       - name: Start Application Pool
         shell: cmd
         run: C:\Windows\System32\inetsrv\appcmd start apppool /apppool.name:"DefaultAppPool"
